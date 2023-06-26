@@ -268,37 +268,37 @@
     }
 
     /* grid */
-.grid {
-    width: 100%;
-    display: block;
-}
+    .grid {
+        width: 100%;
+        display: block;
+    }
 
-.grid.wide {
-    max-width: 1200px;
-    margin: 0 auto;
-}
+    .grid.wide {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
 
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: -4px;
-    margin-right: -4px;
-}
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+        margin-left: -4px;
+        margin-right: -4px;
+    }
 
-.row.no-gutters {
-    margin-left: 0;
-    margin-right: 0;
-}
+    .row.no-gutters {
+        margin-left: 0;
+        margin-right: 0;
+    }
 
-.col {
-    padding-left: 4px;
-    padding-right: 4px;
-}
+    .col {
+        padding-left: 4px;
+        padding-right: 4px;
+    }
 
-.row.no-gutters .col {
-    padding-left: 0;
-    padding-right: 0;
-}
+    .row.no-gutters .col {
+        padding-left: 0;
+        padding-right: 0;
+    }
 
 /* PC medium resolution > */
 @media (min-width: 1113px) {
@@ -421,50 +421,6 @@
         flex: 0 0 100%;
         max-width: 100%;
     }
-
-    .l-o-1 {
-        margin-left: 8.33333%;
-    }
-
-    .l-o-2 {
-        margin-left: 16.66667%;
-    }
-
-    .l-o-3 {
-        margin-left: 25%;
-    }
-
-    .l-o-4 {
-        margin-left: 33.33333%;
-    }
-
-    .l-o-5 {
-        margin-left: 41.66667%;
-    }
-
-    .l-o-6 {
-        margin-left: 50%;
-    }
-
-    .l-o-7 {
-        margin-left: 58.33333%;
-    }
-
-    .l-o-8 {
-        margin-left: 66.66667%;
-    }
-
-    .l-o-9 {
-        margin-left: 75%;
-    }
-
-    .l-o-10 {
-        margin-left: 83.33333%;
-    }
-
-    .l-o-11 {
-        margin-left: 91.66667%;
-    }
 }
 
 </style>
@@ -535,7 +491,7 @@
             nextBtn.onclick = function(){
                 _this.nextQuesion()
             }
-            //khi prev cauhoi
+            //khi prev cau hoi
             prevBtn.onclick = function(){
                 _this.prevQuesion()
             }
@@ -566,7 +522,7 @@
             this.defineProperties()
             //lang nghe / xu ly cac su kien dom/even
             this.handleEvents();
-            //tai thong tin bai hat dau tien vao UI
+            //tai thong tin câu hỏi đầu tiên vao UI
             this.loadCurrentQuesion();
         }
     }
