@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Câu hỏi trắc nghiệm</title>
+</head>
+<body>
+    <div class="app-container grid wide">
+        <div class="row sm-gutter">
+            <div class="col l-10 border-right">
+                <div class="row sesion-frist no-gutters">
+                    <div class="col l-7 sesion-frist-item">
+                        <div class="name-box">
+                            <span class="mr-15">Examinee's Machine: </span><span> NGHIATT</span>
+                        </div>
+                        <div class="name-box">
+                            <span class="mr-15">Exam Sever: </span><span> ENG_EOS_30092010</span>
+                        </div>
+                        <div class="name-box">
+                            <span class="mr-15">Total Mark:</span><span> 53</span>
+                        </div>
+                        <div class="name-box">
+                            <label class="mr-15" for="op-code">Open code:</label>
+                            <input class="open-code" type="text" id="op-code">
+                            <div class="btn btn-show">Show Question</div>
+                        </div>
+                        <div class="name-box">
+                            <span class="mr-15">Duration:</span><span> 50 minutes</span> 
+                        </div>
+                        <div class="name-box">
+                            <span class="mr-15">Time Left:</span>
+                            <span class="mr-15 time-left"> 49:33</span>
+                            <div class="btn btn-start">Start Exam</div>
+                        </div>
+                    </div>
+                    <div class="col l-5">
+                        <div class="name-box">
+                            <span class="mr-15">Student:</span><span> Nghiatt</span>
+                        </div>
+                        <div class="name-box">
+                            <span class="mr-15">Exam Code:</span><span> E2_T2_123456</span>
+                        </div>
+                        <div class="name-box">
+                            <span class="mr-15">Mark:</span><span> 1</span>
+                        </div>
+                        <div class="name-box">
+                            <span class="mr-15">Question No:</span><span> 113</span>
+                        </div>
+                        <div class="name-box">
+                            <form action="" method="post">
+                                <span class="mr-15">Font Size :</span>
+                                <select name="font-size" class="font-size-question">
+                                <option value="10" > 10 </option >
+                                <option value="11" selected > 11 </option>
+                                <option value="12"> 12 </option>
+                                <option value="13"> 13 </option >
+                                <option value="14"> 14 </option>
+                                <option value="15"> 15 </option>
+                                </select >
+                            </form>                                
+                        </div>
+                        <div class="name-box">
+                            <input class="check-finish" type="checkbox" id="finish-index">
+                            <label class="finish-text" for="finish-index">I want to finish the exam</label>
+                            <div class="btn btn-finish">Finish</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sesion-question">
+                    <div class="question-main">
+                        <div class="question-box">
+                            Custom column padding Custom column padding Custom column Custom column padding Custom column padding Custom column
+                        </div>
+                    </div>
+                    <div class="row no-gutters">
+                        <div class="col l-6">
+                            <div class="answer-item">Custom column padding Custom column padding Custom column </div>
+                        </div>
+                        <div class="col l-6">
+                            <div class="answer-item">Custom column padding</div>
+                        </div>
+                        <div class="col l-6">
+                            <div class="answer-item">Custom column padding Custom column padding Custom column </div>
+                        </div>
+                        <div class="col l-6">
+                            <div class="answer-item">Custom column padding</div>
+                        </div>
+                        <div class="next-prev">
+                            <div class="btn btn-next">Prev</div>
+                            <div class="btn btn-prev">Next</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col l-2 content-box">
+                <div class="content-text">
+                    Nội Dung
+                </div>
+                <ul class="content-list">
+                    <li class="content-item">
+                        cau 1
+                    </li>
+                    <li class="content-item">
+                        cau 2
+                    </li>
+                    <li class="content-item">
+                        cau 3
+                    </li>
+                    <li class="content-item">
+                        cau 4
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+    *{
+        box-sizing: inherit;
+    }
+    body{
+        margin: 0;
+    }
+    html {
+        font-size: 62.5%; /* suy ra 16px = 1.6rem ,12px = 1.2rem */
+        line-height: 1.6rem;
+        font-family: 'Roboto', sans-serif;
+        box-sizing: border-box;
+    }
+    .mr-15{
+        margin-right: 15px;
+        color: #272829;
+        font-weight: 600;
+    }
+    .time-left{
+        font-size: 2.4rem;
+        color: #f05123;
+        font-weight: 500;
+    }
+    .btn{
+        min-width: 124px;
+        height: 34px;
+        text-decoration: none;
+        border: none;
+        border-radius: 2px;
+        font-size: 1.5rem;
+        padding: 0 12px;
+        cursor: pointer;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        line-height: 1.6rem
+    }
+    .sesion-frist{
+        padding: 20px;
+        margin-top: 20px;
+    }
+    .sesion-question{
+        padding: 20px;
+        background-color: #f1f5f9;
+    }
+    .col-2{
+        background-color:aqua;
+        border: 1px solid #000;
+    }
+    .question-main{
+        height: 140px;
+        border: 1px solid #e5e5e5;
+        display: flex;
+        align-items: center;
+        background-color: #fff;
+    }
+
+    .btn-start,
+    .btn-show,
+    .btn-next,
+    .btn-prev,
+    .btn-finish{
+        border: 2px solid #f05123;
+        color: #f05123;
+    }
+    .font-size-question{
+        margin-right: 12px;
+    }
+
+    .name-box{
+        margin: 12px 0;
+        font-size: 1.6rem;
+        line-height: 1.8rem;
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+    }
+    .open-code{
+        height: 30px;
+        font-size: 1.6rem;
+        outline: none;
+        margin-right: 12px;
+    }
+    .border-right{
+        border-right: 1px solid #e5e5e5;
+    }
+    .answer-item,
+    .question-main{
+        border-radius: 8px;
+        box-shadow: 8px 0 8px rgba(137,172,192,.04);
+        font-size: 1.6rem;
+        padding: 16px;
+        text-align: center;
+        transition: .2s ease;
+    }
+
+    .answer-item{
+        margin-top: 16px;
+        height: 64px;
+        background-color: #cfedfb;
+        border: 1px solid #f6f7f9;
+        cursor: pointer;
+    }
+
+    .next-prev{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px;
+    }
+    .finish-text{
+        font-size: 1.6rem;
+        line-height: 2.2rem;
+        font-weight: 400;
+        margin: 0 8px;
+    }
+    .check-finish{
+        height: 18px;
+        width: 18px;
+    }
+    .content-text{
+        height: 42px;
+        text-align: center;
+        font-size: 1.6rem;
+        line-height: 2rem;
+        font-weight: 400;
+        border-bottom:1px solid #e5e5e5 ;
+        background-color: #fdecce;
+        padding: 12px;
+    }
+    .content-list{
+        list-style: none;
+        line-height: 1.8rem;
+        font-size: 1.6rem;
+        font-weight: 300;
+        padding-left: 12px;
+    }
+    .content-item{
+        padding: 12px 0;
+        border-bottom:1px solid #e5e5e5 ;
+    }
+    .content-box{
+        margin-top: 40px;
+    }
+
+    /* grid */
+.grid {
+    width: 100%;
+    display: block;
+}
+
+.grid.wide {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -4px;
+    margin-right: -4px;
+}
+
+.row.no-gutters {
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.col {
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+.row.no-gutters .col {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+/* PC medium resolution > */
+@media (min-width: 1113px) {
+    .row {
+        margin-left: -12px;
+        margin-right: -12px;
+    }
+
+    .row.sm-gutter {
+        margin-left: -5px;
+        margin-right: -5px;
+    }
+
+    .col {
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .row.sm-gutter .col {
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    .l-0 {
+        display: none;
+    }
+
+    .l-1,
+    .l-2,
+    .l-2-4,
+    .l-3,
+    .l-4,
+    .l-5,
+    .l-6,
+    .l-7,
+    .l-8,
+    .l-9,
+    .l-10,
+    .l-11,
+    .l-12 {
+        display: block;
+    }
+
+    .l-2-9{
+        flex: 0 0 11.11111%;
+        max-width: 11.11111%;
+    }
+
+    .l-2-10{
+        flex: 0 0 10%;
+        max-width: 10%;
+    }
+
+    .l-1 {
+        flex: 0 0 8.33333%;
+        max-width: 8.33333%;
+    }
+
+    .l-1-4{
+        flex: 0 0 12.5%;
+        max-width: 12.5%;
+    }
+
+    .l-2 {
+        flex: 0 0 16.66667%;
+        max-width: 16.66667%;
+    }
+
+    .l-2-4 {
+        flex: 0 0 20%;
+        max-width: 20%;
+    }
+
+    .l-3 {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+
+    .l-4 {
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%;
+    }
+
+    .l-5 {
+        flex: 0 0 41.66667%;
+        max-width: 41.66667%;
+    }
+
+    .l-6 {
+        flex: 0 0 50%;
+        max-width: 50%;
+    }
+
+    .l-7 {
+        flex: 0 0 58.33333%;
+        max-width: 58.33333%;
+    }
+
+    .l-8 {
+        flex: 0 0 66.66667%;
+        max-width: 66.66667%;
+    }
+
+    .l-9 {
+        flex: 0 0 75%;
+        max-width: 75%;
+    }
+
+    .l-10 {
+        flex: 0 0 83.33333%;
+        max-width: 83.33333%;
+    }
+
+    .l-11 {
+        flex: 0 0 91.66667%;
+        max-width: 91.66667%;
+    }
+
+    .l-12 {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .l-o-1 {
+        margin-left: 8.33333%;
+    }
+
+    .l-o-2 {
+        margin-left: 16.66667%;
+    }
+
+    .l-o-3 {
+        margin-left: 25%;
+    }
+
+    .l-o-4 {
+        margin-left: 33.33333%;
+    }
+
+    .l-o-5 {
+        margin-left: 41.66667%;
+    }
+
+    .l-o-6 {
+        margin-left: 50%;
+    }
+
+    .l-o-7 {
+        margin-left: 58.33333%;
+    }
+
+    .l-o-8 {
+        margin-left: 66.66667%;
+    }
+
+    .l-o-9 {
+        margin-left: 75%;
+    }
+
+    .l-o-10 {
+        margin-left: 83.33333%;
+    }
+
+    .l-o-11 {
+        margin-left: 91.66667%;
+    }
+}
+
+</style>
+
+</html>
