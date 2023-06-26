@@ -70,21 +70,21 @@
                 <div class="sesion-question">
                     <div class="question-main">
                         <div class="question-box">
-                            Custom column padding Custom column padding Custom column Custom column padding Custom column padding Custom column
+                            sklfaa
                         </div>
                     </div>
                     <div class="row no-gutters">
                         <div class="col l-6">
-                            <div class="answer-item">Custom column padding Custom column padding Custom column </div>
+                            <div class="answer-item-1"> asfafaf</div>
                         </div>
                         <div class="col l-6">
-                            <div class="answer-item">Custom column padding</div>
+                            <div class="answer-item-2">asdfafafas</div>
                         </div>
                         <div class="col l-6">
-                            <div class="answer-item">Custom column padding Custom column padding Custom column </div>
+                            <div class="answer-item-3">asfasfasf</div>
                         </div>
                         <div class="col l-6">
-                            <div class="answer-item">Custom column padding</div>
+                            <div class="answer-item-4">asfafaff</div>
                         </div>
                         <div class="next-prev">
                             <div class="btn btn-next">Prev</div>
@@ -98,7 +98,7 @@
                     Nội Dung
                 </div>
                 <ul class="content-list">
-                    <li class="content-item">
+                    <li class="content-item">   
                         cau 1
                     </li>
                     <li class="content-item">
@@ -177,8 +177,8 @@
     .btn-next,
     .btn-prev,
     .btn-finish{
-        border: 2px solid #f05123;
-        color: #f05123;
+        border: 2px solid #4fba69;
+        color: #4fba69;
     }
     .font-size-question{
         margin-right: 12px;
@@ -201,7 +201,10 @@
     .border-right{
         border-right: 1px solid #e5e5e5;
     }
-    .answer-item,
+    .answer-item-1,
+    .answer-item-2,
+    .answer-item-3,
+    .answer-item-4,
     .question-main{
         border-radius: 8px;
         box-shadow: 8px 0 8px rgba(137,172,192,.04);
@@ -211,7 +214,10 @@
         transition: .2s ease;
     }
 
-    .answer-item{
+    .answer-item-1,
+    .answer-item-2,
+    .answer-item-3,
+    .answer-item-4{
         margin-top: 16px;
         height: 64px;
         background-color: #cfedfb;
@@ -462,5 +468,110 @@
 }
 
 </style>
+
+<script>
+    const $ = document.querySelector.bind(document)
+    const $$ = document.querySelectorAll.bind(document)
+
+    questionSesion = $('.sesion-question');
+    questionBox = $('.question-box');
+    answerItem1 = $('.answer-item-1');
+    answerItem2 = $('.answer-item-2');
+    answerItem3 = $('.answer-item-3');
+    answerItem4 = $('.answer-item-4');
+    nextBtn =$('.btn-next');
+    prevBtn =$('.btn-prev');
+
+
+    const app = {
+        currentIndex: 1,
+        questions: [
+            {
+              title: "Click Pow Get Down",
+              answer1: "Raftaar x Fortnite1",
+              answer2: "Raftaar x Fortnite2",
+              answer3: "Raftaar x Fortnite3",
+              answer4: "Raftaar x Fortnite4",
+            },
+            {
+              title: "Tu Phir Se Aana",
+              answer1: " Salim Merchant x Karma1",
+              answer2: " Salim Merchant x Karma2",
+              answer3: " Salim Merchant x Karma3",
+              answer4: " Salim Merchant x Karma4",
+            },
+            {
+              title: "Naachne Ka Shaunq",
+              answer1: "alan x Brobha V1",
+              answer2: "alan x Brobha V2",
+              answer3: "alan x Brobha V3",
+              answer4: "alan x Brobha V4",
+            },
+            {
+              title: "cai hoang huynh",
+              answer1: "cai x huynh V1",
+              answer2: "cai x huynh V2",
+              answer3: "cai x huynh V3",
+              answer4: "cai x huynh V4",
+            },
+            {
+              title: "nguyen huy tuyen",
+              answer1: "nguyen x tuyen V1",
+              answer2: "nguyen x tuyen V2",
+              answer3: "nguyen x tuyen V3",
+              answer4: "nguyen x tuyen V4",
+            }
+        ],
+        defineProperties: function(){
+            Object.defineProperty(this, 'currentQuestion',{
+                get: function(){
+                    return this.questions[this.currentIndex]    
+                }
+            })
+        },
+        handleEvents: function(){
+            const _this = this
+            //khi next cau hoi
+            nextBtn.onclick = function(){
+                _this.nextQuesion()
+            }
+            //khi prev cauhoi
+            prevBtn.onclick = function(){
+                _this.prevQuesion()
+            }
+        },
+        loadCurrentQuesion: function(){
+            questionBox.textContent = this.currentQuestion.title
+            answerItem1.textContent = this.currentQuestion.answer1
+            answerItem2.textContent = this.currentQuestion.answer2
+            answerItem3.textContent = this.currentQuestion.answer3
+            answerItem4.textContent = this.currentQuestion.answer4
+        },
+        nextQuesion: function(){
+            this.currentIndex++
+            if(this.currentIndex >= this.questions.length){
+                this.currentIndex = 0;
+            }
+            this.loadCurrentQuesion()
+        },
+        prevQuesion: function(){
+            this.currentIndex--
+            if(this.currentIndex < 0){
+                this.currentIndex = this.questions.length - 1;
+            }
+            this.loadCurrentQuesion()
+        },
+        start: function(){
+            //dinh nghia cac thuoc tinh cho object
+            this.defineProperties()
+            //lang nghe / xu ly cac su kien dom/even
+            this.handleEvents();
+            //tai thong tin bai hat dau tien vao UI
+            this.loadCurrentQuesion();
+        }
+    }
+
+    app.start()
+</script>
 
 </html>
