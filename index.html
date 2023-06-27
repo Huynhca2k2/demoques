@@ -67,31 +67,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="sesion-question">
-                    <div class="question-main">
-                        <div class="question-box">
-                            sklfaa
-                        </div>
-                    </div>
-                    <div class="row no-gutters">
-                        <div class="col l-6">
-                            <div class="answer-item-1"> asfafaf</div>
-                        </div>
-                        <div class="col l-6">
-                            <div class="answer-item-2">asdfafafas</div>
-                        </div>
-                        <div class="col l-6">
-                            <div class="answer-item-3">asfasfasf</div>
-                        </div>
-                        <div class="col l-6">
-                            <div class="answer-item-4">asfafaff</div>
-                        </div>
-                        <div class="next-prev">
-                            <div class="btn btn-next">Prev</div>
-                            <div class="btn btn-prev">Next</div>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="col l-2 content-box">
                 <div class="content-text">
@@ -111,6 +86,43 @@
                         cau 4
                     </li>
                 </ul>
+            </div>
+        </div>
+        <div class="row sm-gutter">
+            <div class="col l-10 border-right">
+                <div class="sesion-question">
+                    <div class="question-main">
+                        <div class="question-box">
+                            
+                        </div>
+                    </div>
+                    <div class="row no-gutters">
+                        <div class="col l-6">
+                            <input type="radio" hidden name="cautraloi" class="cautraloi1" id="a">
+                            <label for="a" id="answer-item-1" class="answer-item" onclick="answerActive(this)"></label>
+                        </div>
+                        <div class="col l-6">
+                            <input type="radio" hidden name="cautraloi" class="cautraloi2" id="b">
+                            <label for="b" id="answer-item-2" class="answer-item" onclick="answerActive(this)"></label>
+                        </div>
+                        <div class="col l-6">
+                            <input type="radio" hidden name="cautraloi" class="cautraloi3" id="c">
+                            <label for="c" id="answer-item-3" class="answer-item" onclick="answerActive(this)"></label>
+                        </div>
+                        <div class="col l-6">
+                            <input type="radio" hidden name="cautraloi" class="cautraloi4" id="d">
+                            <label for="d" id="answer-item-4" class="answer-item" onclick="answerActive(this)"></label>
+                        </div>
+                        <input type="hidden" name="" id="cauDung">
+                        <div class="next-prev">
+                            <div class="btn btn-prev">Prev</div>
+                            <div class="btn btn-next">Next</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col l-2 content-answer-box">
+                
             </div>
         </div>
     </div>
@@ -201,10 +213,10 @@
     .border-right{
         border-right: 1px solid #e5e5e5;
     }
-    .answer-item-1,
-    .answer-item-2,
-    .answer-item-3,
-    .answer-item-4,
+    #answer-item-1,
+    #answer-item-2,
+    #answer-item-3,
+    #answer-item-4,
     .question-main{
         border-radius: 8px;
         box-shadow: 8px 0 8px rgba(137,172,192,.04);
@@ -214,13 +226,12 @@
         transition: .2s ease;
     }
 
-    .answer-item-1,
-    .answer-item-2,
-    .answer-item-3,
-    .answer-item-4{
+    #answer-item-1,
+    #answer-item-2,
+    #answer-item-3,
+    #answer-item-4{
         margin-top: 16px;
         height: 64px;
-        background-color: #cfedfb;
         border: 1px solid #f6f7f9;
         cursor: pointer;
     }
@@ -243,7 +254,7 @@
         width: 18px;
     }
     .content-text{
-        height: 42px;
+        height: 62px;
         text-align: center;
         font-size: 1.6rem;
         line-height: 2rem;
@@ -265,6 +276,14 @@
     }
     .content-box{
         margin-top: 40px;
+    }
+    .answer-item{
+        display: block;
+        background-color: #cfedfb;
+    }
+    .answer-item.active{
+        background-color: #4fba69;
+        opacity: 0.8;
     }
 
     /* grid */
@@ -431,53 +450,99 @@
 
     questionSesion = $('.sesion-question');
     questionBox = $('.question-box');
-    answerItem1 = $('.answer-item-1');
-    answerItem2 = $('.answer-item-2');
-    answerItem3 = $('.answer-item-3');
-    answerItem4 = $('.answer-item-4');
-    nextBtn =$('.btn-next');
-    prevBtn =$('.btn-prev');
-
+    answerItem1 = $('#answer-item-1');
+    answerItem2 = $('#answer-item-2');
+    answerItem3 = $('#answer-item-3');
+    answerItem4 = $('#answer-item-4');
+    nextBtn = $('.btn-next');
+    prevBtn = $('.btn-prev');
+    cauDung = $('.cauDung');
+    contentAnswerBox = $('.content-answer-box');
+    myOfAnswer = $('.my-of-answer');
+    messAnswer = $('.mess-answer');
+    a = $('#a');
+    b = $('#b');
+    c = $('#c');
+    d = $('#d');
+    const cautralois = [a,b,c,d];
+//xu ly click chi duoc chon 1
+    function answerActive(even) {
+        console.log(even)
+        switch(even) {
+            case answerItem1:
+                answerItem1.classList.add('active')
+                answerItem2.classList.remove('active')
+                answerItem3.classList.remove('active')
+                answerItem4.classList.remove('active')
+            break;
+            case answerItem2:
+                answerItem2.classList.add('active')
+                answerItem1.classList.remove('active')
+                answerItem3.classList.remove('active')
+                answerItem4.classList.remove('active')
+            break;
+            case answerItem3:
+                answerItem3.classList.add('active')
+                answerItem2.classList.remove('active')
+                answerItem1.classList.remove('active')
+                answerItem4.classList.remove('active')
+            break;
+            case answerItem4:
+                answerItem4.classList.add('active')
+                answerItem2.classList.remove('active')
+                answerItem3.classList.remove('active')
+                answerItem1.classList.remove('active')
+            break;
+            default:
+                console.log('...');
+    }
+}
 
     const app = {
-        currentIndex: 1,
+        currentIndex: 0,
         questions: [
             {
-              title: "Click Pow Get Down",
-              answer1: "Raftaar x Fortnite1",
-              answer2: "Raftaar x Fortnite2",
-              answer3: "Raftaar x Fortnite3",
-              answer4: "Raftaar x Fortnite4",
+              title: "cau 1: Click Pow Get Down",
+              answer1: "A.Raftaar x Fortnite1",
+              answer2: "B.Raftaar x Fortnite2",
+              answer3: "C.Raftaar x Fortnite3",
+              answer4: "D.Raftaar x Fortnite4",
+              cau_dung:'a',
             },
             {
-              title: "Tu Phir Se Aana",
-              answer1: " Salim Merchant x Karma1",
-              answer2: " Salim Merchant x Karma2",
-              answer3: " Salim Merchant x Karma3",
-              answer4: " Salim Merchant x Karma4",
+              title: "cau 2: Tu Phir Se Aana",
+              answer1: " A.Salim Merchant x Karma1",
+              answer2: " B.Salim Merchant x Karma2",
+              answer3: " C.Salim Merchant x Karma3",
+              answer4: " D.Salim Merchant x Karma4",
+              cau_dung:'b',
             },
             {
-              title: "Naachne Ka Shaunq",
-              answer1: "alan x Brobha V1",
-              answer2: "alan x Brobha V2",
-              answer3: "alan x Brobha V3",
-              answer4: "alan x Brobha V4",
+              title: "cau 3: Naachne Ka Shaunq",
+              answer1: "A.alan x Brobha V1",
+              answer2: "B.alan x Brobha V2",
+              answer3: "C.alan x Brobha V3",
+              answer4: "D.alan x Brobha V4",
+              cau_dung:'c',
             },
             {
-              title: "cai hoang huynh",
-              answer1: "cai x huynh V1",
-              answer2: "cai x huynh V2",
-              answer3: "cai x huynh V3",
-              answer4: "cai x huynh V4",
+              title: "cau 4 : cai hoang huynh",
+              answer1: "A.cai x huynh V1",
+              answer2: "B.cai x huynh V2",
+              answer3: "C.cai x huynh V3",
+              answer4: "D.cai x huynh V4",
+              cau_dung:'d',
             },
             {
-              title: "nguyen huy tuyen",
-              answer1: "nguyen x tuyen V1",
-              answer2: "nguyen x tuyen V2",
-              answer3: "nguyen x tuyen V3",
-              answer4: "nguyen x tuyen V4",
+              title: "cau 5 :nguyen huy tuyen",
+              answer1: "A.nguyen x tuyen V1",
+              answer2: "B.nguyen x tuyen V2",
+              answer3: "C.nguyen x tuyen V3",
+              answer4: "D.nguyen x tuyen V4",
+              cau_dung:'a',
             }
         ],
+
         defineProperties: function(){
             Object.defineProperty(this, 'currentQuestion',{
                 get: function(){
@@ -489,7 +554,7 @@
             const _this = this
             //khi next cau hoi
             nextBtn.onclick = function(){
-                _this.nextQuesion()
+                _this.nextQuesion();
             }
             //khi prev cau hoi
             prevBtn.onclick = function(){
@@ -497,18 +562,21 @@
             }
         },
         loadCurrentQuesion: function(){
+            const _this = this
+            _this.getAnswer();
+            _this.removeAnswer();
             questionBox.textContent = this.currentQuestion.title
             answerItem1.textContent = this.currentQuestion.answer1
             answerItem2.textContent = this.currentQuestion.answer2
             answerItem3.textContent = this.currentQuestion.answer3
             answerItem4.textContent = this.currentQuestion.answer4
         },
-        nextQuesion: function(){
+        nextQuesion: function(){    
             this.currentIndex++
             if(this.currentIndex >= this.questions.length){
                 this.currentIndex = 0;
             }
-            this.loadCurrentQuesion()
+            this.loadCurrentQuesion();
         },
         prevQuesion: function(){
             this.currentIndex--
@@ -517,6 +585,41 @@
             }
             this.loadCurrentQuesion()
         },
+        removeAnswer: function(){
+            cautralois.forEach((answer) => {
+                answer.checked = false;
+            })
+            answerItem4.classList.remove('active')
+            answerItem2.classList.remove('active')
+            answerItem3.classList.remove('active')
+            answerItem1.classList.remove('active')
+        },
+        getAnswer: function(){
+            let dapan = null;
+            cautralois.forEach((traloi) => {
+                if(traloi.checked){
+                    dapan = traloi.id;
+                }
+            })
+            cauDung = this.questions[this.currentIndex].cau_dung;
+            if(dapan == null){
+                contentAnswerBox.innerHTML = `
+                <div class="content-text">
+                    Đáp án đúng <br>
+                    câu ${this.currentIndex + 1} : ${cauDung}
+                </div>`    
+            }else{
+                contentAnswerBox.innerHTML = `
+                <div class="content-text">
+                    Đáp án đúng <br>
+                    câu ${this.currentIndex + 1} : ${cauDung}
+                </div>
+                <ul class="content-list">
+                    <div class="my-of-answer">Đáp án bạn chọn <br> câu ${this.currentIndex} :${dapan}</div>
+                </ul>`
+            }
+        },
+        
         start: function(){
             //dinh nghia cac thuoc tinh cho object
             this.defineProperties()
